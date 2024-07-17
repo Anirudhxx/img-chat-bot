@@ -68,7 +68,7 @@ const HomePage = () => {
     formData.append('text', text);
 
     try {
-      const response = await axios.post('http://localhost:5001/api/images/analyze', formData, {
+      const response = await axios.post('https://image-text-extractor-backend-1.onrender.com/api/images/analyze', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

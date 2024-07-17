@@ -7,11 +7,15 @@ const imageRoutes = require('./routes/imageRoutes');
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'https://your-vercel-app-url.vercel.app',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.MONGO_URI, { serverSelectionTimeoutMS: 30000 })
+mongoose.connect("mongodb+srv://anirudhchauhan74000:aurvahealth@cluster0.jezwebj.mongodb.net/db?retryWrites=true&w=majority&appName=Cluster0", { serverSelectionTimeoutMS: 30000 })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Could not connect to MongoDB', err));
 
