@@ -15,7 +15,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb+srv://anirudhchauhan74000:aurvahealth@cluster0.jezwebj.mongodb.net/db?retryWrites=true&w=majority&appName=Cluster0", { serverSelectionTimeoutMS: 30000 })
+mongoose.connect(process.env.MONGO_URI, { serverSelectionTimeoutMS: 30000 })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Could not connect to MongoDB', err));
 
